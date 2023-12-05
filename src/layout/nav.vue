@@ -1,17 +1,5 @@
 <template>
-  <div
-    class="nav"
-    :style="{
-      boder: opacity === 0 ? '' : '1px solid rgba(235,235,235,1)',
-      backgroundColor: opacity === 0 ? 'transparent' : '#fff',
-      opacity: opacity || 1,
-    }"
-  >
-    <img
-      :src="opacity > 0 || !isNavTransparent ? logo2 : logo1"
-      alt=""
-      class="logo"
-    />
+  <div class="nav">
     <div class="menu">
       <span
         :class="['menu-item', { active: currentPath.includes('/home') }]"
@@ -26,13 +14,8 @@
         @mousemove="hover(1)"
         @mouseleave="leave"
       >
-        <span
-          class="el-dropdown-link"
-          :style="{
-            color: opacity === 0 && isNavTransparent ? '#fff' : '#25282E',
-          }"
-        >
-          <span>创新服务</span>
+        <span class="el-dropdown-link">
+          <span>数据上传</span>
           <el-icon class="el-icon--right">
             <arrow-down />
           </el-icon>
@@ -123,15 +106,12 @@ watch(
 </script>
 <style lang="scss" scoped>
 .nav {
-  height: 100px;
+  height: 60px;
   width: 100%;
-  line-height: 100px;
-  position: fixed;
-  top: 0;
+  background: rgb(226, 0, 118);
   display: flex;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  justify-content: center;
-  z-index: 10;
+  justify-content: flex-start;
+  align-items: center;
   .logo {
     position: absolute;
     top: 36px;
@@ -151,10 +131,11 @@ watch(
         display: flex;
         position: relative;
         width: 85px;
+        color: #fff;
         .el-icon--right {
           position: absolute;
           right: 0px;
-          top: 42px;
+          // top: 42px;
         }
         ul {
           position: absolute;
@@ -190,9 +171,9 @@ watch(
       }
     }
     .active {
-      color: #f53a2c !important;
+      color: #f5f5f5 !important;
       .el-dropdown-link {
-        color: #f53a2c !important;
+        color: #f5f5f5 !important;
         font-weight: 700;
       }
     }
