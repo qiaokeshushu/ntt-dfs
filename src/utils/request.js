@@ -2,10 +2,9 @@
  * axios二次封装
  */
 import axios from "axios"
-import config from "../config/index.js"
 import {ElMessage} from "element-plus"
 import router from "../router/index.js"
-import storage from "./storage.js"
+
 
 const TOKEN_INVALID = 'Token认证失败 请重新登录'
 const NETWORK_ERROR = '网络请求异常，请稍后再试'
@@ -14,18 +13,18 @@ const NETWORK_ERROR = '网络请求异常，请稍后再试'
 // 创建axios实例对象，添加全局配置
 const service = axios.create({
   // 自动根据配置去匹配url
-  baseURL: config.baseApi,
+  baseURL: import.meta.env.VITE_APP_BASE_URL,
   // 后台管理通常8秒
   timeout: 8000
 })
 
 // 请求拦截
 service.interceptors.request.use((req) => {
-  // const headers = req.headers
-  // const { token } = storage.getItem('userInfo')
-  // if (!headers.Authorization) {
-  //   headers.Authorization = 'Bearer ' + token
-  // }
+  const headers = req.headers
+  const { token } = localStorage.getItem('userInfo')
+  if (!headers.Authorization) {
+    headers.Authorization = 'Bearer ' + token
+  }
   return req;
 })
 
@@ -51,36 +50,32 @@ service.interceptors.response.use((res) => {
   }
 })
 
-/**
- * 请求的核心函数
- * @param options 请求配置
- */
+export const get = (url, data, config) => {
+  // console.log(url, data, config);
+  return service.get(url, { params: data, ...config });
+};
+// post请求
+export const post = (url, data, config) => {
+  // console.log(service.post(url, data, config));
+  return service.post(url, data, config);
+};
+// delete请求
+export const del = (url, data, config) => {
+  return service.delete(url, { params: data, ...config });
+};
+// put请求
+export const put = (url, data, config) => {
+  return service.put(url, data, config);
+};
+// patch请求
+export const patch = (url, data, config) => {
+  return service.patch(url, data, config);
+};
+export default {
+  get,
+  post,
+  del,
+  put,
+  patch,
+};
 
-function request(options) {
-  // get和post不一样,post请求参数叫data,get的时候参数叫params，我们这边可以打平，可以都叫data
-  options.method = options.method || 'get'
-  if (options.method.toLowerCase() === 'get') {
-    options.params = options.data
-  }
-  let isMock = config.mock
-  // 局部控制mock
-  if(typeof options.mock !== 'undefined') {
-    isMock = options.mock
-  }
-  // 这样写是为了确保线上环境api不会出错
-  if (config.env === 'prod') {
-    service.defaults.baseURL = config.baseApi
-  } else {
-    service.defaults.baseURL = isMock ? config.mockApi : config.baseApi
-  }
-  return service(options)
-}
-
-['get', 'post', 'put', 'delete', 'patch'].forEach((item) => {
-  request[item] = (url, data, options) => {
-    // options用于扩展，可以传入loading, timeOut等等
-    return request({url, data, method: item, ...options})
-  }
-})
-
-export default request;
