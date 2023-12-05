@@ -9,10 +9,11 @@ import './assets/style/index.scss'
 
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 const app = createApp(App);
-app.use(ElementPlus, {size: 'small'}).use(router).use(store)
+app.use(ElementPlus, {size: 'default'}).use(router).use(store)
 
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
-
+import CommonTable from '@/components/CommonTable/index.vue'
+app.component('CommonTable', CommonTable)
 app.mount('#app')
