@@ -6,20 +6,68 @@ import {createRouter, createWebHashHistory} from "vue-router"
 
 const routes = [
   {
-    name: 'layout',
+    name: 'home',
     path: '/',
     redirect: '/home',
+  },
+  {
+    name: 'home',
+    path: '/home',
     // 元信息，方便修改标题等操作。也可以用来做权限
     meta: {
       title: '首页'
     },
-    component: () => import('../layout/index.vue'),
+    component: () => import('@/layout/index.vue'),
     children: [
       {
         name: 'home',
-        path: 'home',
+        path: '/home',
         meta: {
           title: '首页'
+        },
+        component: () => import('@/views/home.vue'),
+      }, 
+    ]
+  },
+  {
+    name: 'dataUpload',
+    path: '/dataUpload',
+    meta: {
+      title: '数据上传'
+    },
+    component: () => import('@/layout/index.vue'),
+    children: [
+      {
+        name: 'dataUpload',
+        path: '/dataUpload',
+        meta: {
+          title: '数据上传'
+        },
+        component: () => import('@/views/home.vue'),
+      }, 
+    ]
+  },
+  {
+    name: 'dataConfirm',
+    path: '/dataConfirm',
+    meta: {
+      title: '数据确认'
+    },
+    component: () => import('@/layout/index.vue'),
+    children: [
+      {
+        name: 'dataConfirm',
+        path: 'dataConfirm',
+        meta: {
+          title: '数据确认'
+        },
+        component: () => import('@/views/home.vue'),
+      },
+      {
+        name: 'dataGroupConfirm',
+        path: 'dataGroupConfirm',
+        meta: {
+          title: '数据组确认'
         },
         component: () => import('@/views/home.vue'),
       },
