@@ -2,6 +2,7 @@
   <div class="container">
     <top />
     <navbar />
+    <Breadcrumb />
     <router-view></router-view>
   </div>
 </template>
@@ -11,6 +12,7 @@ import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 import navbar from "./nav.vue";
 import top from "./top.vue";
+import Breadcrumb from "@/components/Breadcrumb/index.vue";
 const routerName = useRouter().currentRoute.value.name;
 onMounted(() => {});
 </script>
