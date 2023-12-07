@@ -50,6 +50,7 @@ const routes = [
   {
     name: 'dataConfirm',
     path: '/dataConfirm',
+    redirect:'/dataConfirm/dataConfirm',
     meta: {
       title: '数据确认'
     },
