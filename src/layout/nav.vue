@@ -4,7 +4,6 @@
       <el-menu
         mode="horizontal"
         :default-active="activeIndex"
-        @select="handleSelect"
         active-text-color="#ffd04b"
         router
       >

@@ -28,6 +28,7 @@ function getBreadcrumb() {
     return preVal;
   }, []);
 }
+
 watch(route, () => {
   getBreadcrumb();
 });
@@ -40,7 +41,7 @@ onMounted(() => {
   display: inline-block;
   font-size: 14px;
   line-height: 50px;
-  margin-left: 8px;
+  margin-left: 20px;
 
   .first {
     color: #888;

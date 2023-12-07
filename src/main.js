@@ -7,9 +7,10 @@ import store from './store'
 import './assets/style/reset.css'
 import './assets/style/index.scss'
 import './premission.js'
+import locale from 'element-plus/lib/locale/lang/zh-cn' 
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 const app = createApp(App);
-app.use(ElementPlus, {size: 'default'}).use(router).use(store)
+app.use(ElementPlus, {size: 'default',locale:locale}).use(router).use(store)
 
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)

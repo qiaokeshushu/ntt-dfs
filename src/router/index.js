@@ -42,7 +42,7 @@ const routes = [
         meta: {
           title: '数据上传'
         },
-        component: () => import('@/views/home.vue'),
+        component: () => import('@/views/dataUpload/index.vue'),
       }, 
     ]
   },

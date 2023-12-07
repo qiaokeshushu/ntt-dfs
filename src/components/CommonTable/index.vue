@@ -69,10 +69,4 @@ const handleCurrentChange = (row) => {
   emit("currentChange", row);
 };
 </script>
-<style lang="scss" scoped>
-.pagination {
-  display: flex;
-  justify-content: end;
-  margin-top: 10px;
-}
-</style>
+<style lang="scss" scoped></style>

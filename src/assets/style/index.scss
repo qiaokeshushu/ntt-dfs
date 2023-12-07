@@ -55,7 +55,14 @@ a {
   margin-left: 15px;
   color: #787878;
 }
-
+.el-form-item{
+  .el-select{
+    width:100%;
+  }
+  .el-input{
+    width:100%;
+  }
+}
 /*
   * 公共样式
   */
@@ -67,8 +74,7 @@ a {
 .base-table {
   border-radius: 5px;
   background: #ffffff;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 10px 0;
   .action {
     border-radius: 5px 5px 0px 0px;
     background: #ffffff;

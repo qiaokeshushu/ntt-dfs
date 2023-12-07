@@ -5,7 +5,6 @@
       v-model:current-page="currentPage"
       v-model:page-size="pageSize"
       :layout="layout"
-      small
       :page-sizes="pageSizes"
       :pager-count="pagerCount"
       :total="total"
@@ -94,7 +93,9 @@ function handleCurrentChange(val) {
 <style scoped>
 .pagination-container {
   background: #fff;
-  padding: 32px 16px;
+  padding: 5px 16px;
+  display: flex;
+  justify-content: flex-end;
 }
 .pagination-container.hidden {
   display: none;
