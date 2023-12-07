@@ -18,7 +18,7 @@
           <el-sub-menu
             v-else-if="route.children && route.children.length > 1"
             :index="route.path"
-            popper-append-to-body
+            :teleported="false"
           >
             <template #title>
               {{ route.meta.title }}

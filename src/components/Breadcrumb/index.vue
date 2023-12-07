@@ -2,10 +2,10 @@
   <el-breadcrumb class="app-breadcrumb" separator=">">
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item, index) in levelList" :key="index">
-        <span v-if="item.redirect" class="redirect">
+        <span v-if="item.redirect" class="first">
           {{ item.meta.title }}
         </span>
-        <span v-else>
+        <span v-else class="two">
           {{ item.meta.title }}
         </span>
       </el-breadcrumb-item>
@@ -42,9 +42,11 @@ onMounted(() => {
   line-height: 50px;
   margin-left: 8px;
 
-  .redirect {
-    color: rgb(226, 0, 118);
-    cursor: text;
+  .first {
+    color: #888;
+  }
+  .two {
+    color: #000;
   }
 }
 </style>
