@@ -6,7 +6,6 @@ import {createRouter, createWebHashHistory} from "vue-router"
 
 const routes = [
   {
-    name: 'home',
     path: '/',
     redirect: '/home',
   },

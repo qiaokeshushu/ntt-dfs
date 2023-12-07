@@ -8,12 +8,9 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
-import { useRouter } from "vue-router";
 import navbar from "./nav.vue";
 import top from "./top.vue";
 import Breadcrumb from "@/components/Breadcrumb/index.vue";
-const routerName = useRouter().currentRoute.value.name;
 onMounted(() => {});
 </script>
 

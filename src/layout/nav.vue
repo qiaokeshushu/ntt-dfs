@@ -37,9 +37,6 @@
   </div>
 </template>
 <script setup>
-import { onMounted, ref, computed, reactive, watch } from "vue";
-import { useStore } from "vuex";
-import { useRoute, useRouter } from "vue-router";
 const activeIndex = ref("");
 const route = useRoute();
 const router = useRouter();
@@ -54,18 +51,11 @@ onMounted(() => {
 </script>
 <style lang="scss" scoped>
 .nav {
-  height: 60px;
+  height: 40px;
   width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  .logo {
-    position: absolute;
-    top: 36px;
-    left: 60px;
-    width: 176px;
-    height: 28px;
-  }
   .menu {
     width: 100%;
     height: 100%;
@@ -83,6 +73,9 @@ onMounted(() => {
       .el-menu-item.is-active {
         background-color: rgba(226, 0, 118, 0.3) !important;
       }
+      .el-sub-menu {
+        height: 100%;
+      }
       .el-sub-menu__title {
         color: #fff;
       }
@@ -92,9 +85,6 @@ onMounted(() => {
       .el-sub-menu:hover {
         background-color: rgba(226, 0, 118, 0.5) !important;
       }
-      // .is-opened {
-      //   background-color: #000 !important;
-      // }
     }
   }
 }

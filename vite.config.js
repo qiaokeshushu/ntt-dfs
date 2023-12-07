@@ -1,10 +1,15 @@
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
-
+import autoImport from 'unplugin-auto-import/vite';
 
 export default defineConfig({
-  // root: 'src',
+  plugins: [
+    vue(),
+    autoImport({
+      imports: ["vue", "vue-router"],
+      dts: false
+  })],
   server: {
     host: 'localhost',
     port: 8080,
@@ -19,10 +24,5 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src')
     }
-  },
-  plugins: [vue()],
-  // build: {
-  //   // root: 'src',
-  //   outDir: '../dist-server'
-  // }
+  }
 })
