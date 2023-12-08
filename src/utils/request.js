@@ -3,8 +3,8 @@
  */
 import axios from "axios"
 import {ElMessage} from "element-plus"
-import router from "../router/index.js"
-
+import router from "@/router/index"
+import {getToken} from "@/utils/storage"
 
 const TOKEN_INVALID = 'Token认证失败 请重新登录'
 const NETWORK_ERROR = '网络请求异常，请稍后再试'
@@ -21,9 +21,9 @@ const service = axios.create({
 // 请求拦截
 service.interceptors.request.use((req) => {
   const headers = req.headers
-  const { token } = localStorage.getItem('userInfo')
-  if (!headers.Authorization) {
-    headers.Authorization = 'Bearer ' + token
+  
+  if (getToken()) {
+    config.headers['Authorization'] = getToken()
   }
   return req;
 })
@@ -71,11 +71,5 @@ export const put = (url, data, config) => {
 export const patch = (url, data, config) => {
   return service.patch(url, data, config);
 };
-export default {
-  get,
-  post,
-  del,
-  put,
-  patch,
-};
+export default service
 

@@ -48,6 +48,7 @@
 <script setup>
 import { reactive } from "vue";
 import { download } from "@/utils/utils";
+import { getCaseData, getCaselist } from "@/api/inovative";
 const columns = [
   {
     label: "类别",
@@ -102,7 +103,7 @@ const tableData = ref([
 ]);
 const queryParams = reactive({
   pageNum: 1,
-  pageSize: 10,
+  pageSize: "你好",
 });
 const getList = () => {};
 const handleDownload = (row) => {
