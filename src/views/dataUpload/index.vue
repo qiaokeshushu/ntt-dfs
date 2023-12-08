@@ -3,21 +3,21 @@
     <el-form>
       <el-row :gutter="20">
         <el-col :span="5">
-          <el-form-item label="类别：">
+          <el-form-item label="类别">
             <el-select placeholder="请选择">
               <el-option label="选项一" value="1"></el-option>
             </el-select>
           </el-form-item>
         </el-col>
         <el-col :span="5">
-          <el-form-item label="类型：">
+          <el-form-item label="类型">
             <el-select placeholder="请选择">
               <el-option label="选项一" value="1"></el-option>
             </el-select>
           </el-form-item>
         </el-col>
         <el-col :span="5">
-          <el-form-item label="数据源：">
+          <el-form-item label="数据源">
             <el-select placeholder="请选择">
               <el-option label="选项一" value="1"></el-option>
             </el-select>
@@ -31,7 +31,9 @@
     <CommonTable :columns="columns" :tableData="tableData">
       <template #action="{ row }">
         <el-button type="primary">上传</el-button>
-        <el-button type="primary">下载模板</el-button>
+        <el-button type="primary" @click="handleDownload(row)"
+          >下载模板</el-button
+        >
       </template>
     </CommonTable>
     <pagination
@@ -45,7 +47,7 @@
 
 <script setup>
 import { reactive } from "vue";
-
+import { download } from "@/utils/utils";
 const columns = [
   {
     label: "类别",
@@ -65,7 +67,7 @@ const columns = [
     prop: "action",
   },
 ];
-const total = ref(0);
+const total = ref(20);
 const tableData = ref([
   {
     name: "类别1",
@@ -103,6 +105,10 @@ const queryParams = reactive({
   pageSize: 10,
 });
 const getList = () => {};
+const handleDownload = (row) => {
+  const res = new Blob();
+  download(res, "test");
+};
 </script>
 
 <style lang="scss" scoped></style>

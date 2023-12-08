@@ -5,6 +5,7 @@
       v-model:current-page="currentPage"
       v-model:page-size="pageSize"
       :layout="layout"
+      small
       :page-sizes="pageSizes"
       :pager-count="pagerCount"
       :total="total"
