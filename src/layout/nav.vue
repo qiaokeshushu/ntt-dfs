@@ -22,13 +22,14 @@
             <template #title>
               {{ route.meta.title }}
             </template>
-            <el-menu-item
-              v-for="(child, idx) in route.children"
-              :key="i"
-              :index="`${route.path}/${child.path}`"
-            >
-              {{ child.meta.title }}
-            </el-menu-item>
+            <template v-for="(child, idx) in route.children" :key="i">
+              <el-menu-item
+                :index="`${route.path}/${child.path}`"
+                v-if="!!!child.meta.hidden"
+              >
+                {{ child.meta.title }}
+              </el-menu-item>
+            </template>
           </el-sub-menu>
         </template>
       </el-menu>
@@ -64,7 +65,8 @@ onMounted(() => {
       display: flex;
       align-items: center;
       .el-menu-item {
-        color: #fff;
+        color: #fff !important;
+        font-weight: bold;
       }
       .el-menu-item:hover {
         background-color: #ce2c75 !important;
@@ -76,7 +78,8 @@ onMounted(() => {
         height: 100%;
       }
       .el-sub-menu__title {
-        color: #fff;
+        color: #fff !important;
+        font-weight: bold;
       }
       .el-sub-menu__title:hover {
         background-color: #ce2c75 !important;

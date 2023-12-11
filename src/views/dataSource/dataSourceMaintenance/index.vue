@@ -23,9 +23,13 @@
     </el-form>
     <div>
       <el-button type="primary">新建数据源</el-button>
-      <el-button type="danger">删除</el-button>
+      <el-button type="danger" @click="handleDelete">删除</el-button>
     </div>
-    <CommonTable :columns="columns" :tableData="tableData">
+    <CommonTable
+      :columns="columns"
+      :tableData="tableData"
+      @selectionChange="handleSelectionChange"
+    >
       <template #dataSource="{ row }">
         <span class="table_href">
           {{ row.dataSource }}
@@ -45,9 +49,8 @@
 </template>
 
 <script setup>
-import { reactive } from "vue";
-import { download } from "@/utils/utils";
-const radio = ref(null);
+import { download, delConfirm } from "@/utils/utils";
+const checkRows = ref([]);
 const columns = [
   {
     label: "",
@@ -136,8 +139,13 @@ const handleDownload = (row) => {
   const res = new Blob();
   download(res, "test");
 };
-const clickDataType = (row) => {
-  radio.value = row.id;
+const handleSelectionChange = (rows) => {
+  checkRows.value = rows;
+};
+const handleDelete = () => {
+  delConfirm(checkRows.value).then(() => {
+    console.log("删除操作");
+  });
 };
 </script>
 

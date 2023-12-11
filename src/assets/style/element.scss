@@ -52,3 +52,14 @@
   background-color: #254093 !important;
   border-color: #254093 !important;
 }
+.el-checkbox__input.is-checked .el-checkbox__inner{
+  background-color: #254093 !important;
+  border-color: #254093 !important;
+}
+.el-checkbox__input.is-indeterminate .el-checkbox__inner{
+  background-color: #254093!important;
+  border-color: #254093!important;
+}
+.el-table thead{
+  font-weight: bold;
+}

@@ -31,6 +31,7 @@ const routes = [
   {
     name: 'dataUpload',
     path: '/dataUpload',
+    redirect:'/dataUpload',
     meta: {
       title: '数据上传'
     },
@@ -77,7 +78,7 @@ const routes = [
         meta: {
           title: '数据刷新'
         },
-        component: () => import('@/views/home.vue'),
+        component: () => import('@/views/dataConfirm/refresh/index.vue'),
       },
        {
         name: 'shareFolderUpload',
@@ -85,7 +86,7 @@ const routes = [
         meta: {
           title: 'ShareFolder 数据上传'
         },
-        component: () => import('@/views/home.vue'),
+        component: () => import('@/views/dataConfirm/shareFolderUpload/index.vue'),
       },
        {
         name: 'shareFolderRelease',
@@ -93,7 +94,7 @@ const routes = [
         meta: {
           title: 'ShareFolder 发布'
         },
-        component: () => import('@/views/home.vue'),
+        component: () => import('@/views/dataConfirm/shareFolderRelease/index.vue'),
       },
     ]
   },
@@ -125,6 +126,41 @@ const routes = [
     ]
   },
   {
+    name: 'dwManage',
+    path: '/dwManage',
+    redirect:'/dwManage/dwMantenance',
+    meta: {
+      title: 'DW 查询管理'
+    },
+    component: () => import('@/layout/index.vue'),
+    children: [
+      {
+        name: 'dwMantenance',
+        path: 'dwMantenance',
+        meta: {
+          title: 'DW  数据源维护'
+        },
+        component: () => import('@/views/dwManage/dwMantenance/index.vue'),
+      },
+      {
+        name: 'dwPremission',
+        path: 'dwPremission',
+        meta: {
+          title: 'DW  数据源权限'
+        },
+        component: () => import('@/views/dwManage/dwPremission/index.vue'),
+      },
+      {
+        name: 'dwQuery',
+        path: 'dwQuery',
+        meta: {
+          title: 'DW  查询'
+        },
+        component: () => import('@/views/dwManage/dwQuery/index.vue'),
+      },
+    ]
+  },
+  {
     name: 'dataSource',
     path: '/dataSource',
     redirect:'/dataSource/dataSourceMaintenance',
@@ -148,7 +184,134 @@ const routes = [
           title: '数据源权限'
         },
         component: () => import('@/views/dataSource/dataSoucePremission/index.vue'),
+      },
+      {
+        name: 'ftpDataSourceManage',
+        path: 'ftpDataSourceManage',
+        meta: {
+          title: 'FTP 数据源管理',
+          // hidden: true
+        },
+        component: () => import('@/views/dataSource/ftpDataSourceManage/index.vue'),
+      },
+      {
+        name: 'validateRules',
+        path: 'validateRules',
+        meta: {
+          title: '组校验规则'
+        },
+        component: () => import('@/views/dataSource/validateRules/index.vue'),
+      },
+      {
+        name: 'sfDataSourceMaintenance',
+        path: 'sfDataSourceMaintenance',
+        meta: {
+          title: 'Share Folder数据源维护'
+        },
+        component: () => import('@/views/dataSource/sfDataSourceMaintenance/index.vue'),
       }
+    ]
+  },
+  {
+    name: 'emailManage',
+    path: '/emailManage',
+    redirect:'/emailManage/emialTemplate',
+    meta: {
+      title: '邮件管理'
+    },
+    component: () => import('@/layout/index.vue'),
+    children: [
+      {
+        name: 'emialTemplate',
+        path: 'emialTemplate',
+        meta: {
+          title: '邮件模板维护'
+        },
+        component: () => import('@/views/emailManage/emialTemplate/index.vue'),
+      },
+      {
+        name: 'emailNotify',
+        path: 'emailNotify',
+        meta: {
+          title: '邮件通知'
+        },
+        component: () => import('@/views/emailManage/emailNotify/index.vue'),
+      }
+    ]
+  },
+  {
+    name: 'systemManage',
+    path: '/systemManage',
+    redirect:'/systemManage/users',
+    meta: {
+      title: '系统管理'
+    },
+    component: () => import('@/layout/index.vue'),
+    children: [
+      {
+        name: 'users',
+        path: 'users',
+        meta: {
+          title: '用户'
+        },
+        component: () => import('@/views/systemManage/users/index.vue'),
+      },
+      {
+        name: 'roles',
+        path: 'roles',
+        meta: {
+          title: '角色'
+        },
+        component: () => import('@/views/systemManage/roles/index.vue'),
+      },
+      {
+        name: 'systemParameter',
+        path: 'systemParameter',
+        meta: {
+          title: '系统参数'
+        },
+        component: () => import('@/views/systemManage/systemParameter/index.vue'),
+      },
+      {
+        name: 'reportData',
+        path: 'reportData',
+        meta: {
+          title: '报表数据项'
+        },
+        component: () => import('@/views/systemManage/reportData/index.vue'),
+      },
+      {
+        name: 'reportUser',
+        path: 'reportUser',
+        meta: {
+          title: '报表用户'
+        },
+        component: () => import('@/views/systemManage/reportUser/index.vue'),
+      },
+      {
+        name: 'reportGroup',
+        path: 'reportGroup',
+        meta: {
+          title: '报表组'
+        },
+        component: () => import('@/views/systemManage/reportGroup/index.vue'),
+      },
+      {
+        name: 'refreshManage',
+        path: 'refreshManage',
+        meta: {
+          title: '数据刷新管理'
+        },
+        component: () => import('@/views/systemManage/refreshManage/index.vue'),
+      },
+      {
+        name: 'etlSetting',
+        path: 'etlSetting',
+        meta: {
+          title: 'ETL 工作流配置'
+        },
+        component: () => import('@/views/systemManage/etlSetting/index.vue'),
+      },
     ]
   },
   {
