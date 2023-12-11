@@ -61,16 +61,94 @@ const routes = [
         meta: {
           title: '数据确认'
         },
-        component: () => import('@/views/home.vue'),
+        component: () => import('@/views/dataConfirm/index.vue'),
       },
       {
-        name: 'dataGroupConfirm',
-        path: 'dataGroupConfirm',
+        name: 'ftpFile',
+        path: 'ftpFile',
         meta: {
-          title: '数据组确认'
+          title: 'FTP 文件确认'
+        },
+        component: () => import('@/views/dataConfirm/ftpFile/index.vue'),
+      },
+      {
+        name: 'refresh',
+        path: 'refresh',
+        meta: {
+          title: '数据刷新'
         },
         component: () => import('@/views/home.vue'),
       },
+       {
+        name: 'shareFolderUpload',
+        path: 'shareFolderUpload',
+        meta: {
+          title: 'ShareFolder 数据上传'
+        },
+        component: () => import('@/views/home.vue'),
+      },
+       {
+        name: 'shareFolderRelease',
+        path: 'shareFolderRelease',
+        meta: {
+          title: 'ShareFolder 发布'
+        },
+        component: () => import('@/views/home.vue'),
+      },
+    ]
+  },
+  {
+    name: 'historyData',
+    path: '/historyData',
+    redirect:'/historyData/dfs',
+    meta: {
+      title: '历史数据'
+    },
+    component: () => import('@/layout/index.vue'),
+    children: [
+      {
+        name: 'dfs',
+        path: 'dfs',
+        meta: {
+          title: 'DFS 历史数据'
+        },
+        component: () => import('@/views/historyData/dfs/index.vue'),
+      },
+      {
+        name: 'ftp',
+        path: 'ftp',
+        meta: {
+          title: 'FTP 历史数据'
+        },
+        component: () => import('@/views/historyData/ftp/index.vue'),
+      }
+    ]
+  },
+  {
+    name: 'dataSource',
+    path: '/dataSource',
+    redirect:'/dataSource/dataSourceMaintenance',
+    meta: {
+      title: '数据源管理'
+    },
+    component: () => import('@/layout/index.vue'),
+    children: [
+      {
+        name: 'dataSourceMaintenance',
+        path: 'dataSourceMaintenance',
+        meta: {
+          title: '数据源维护'
+        },
+        component: () => import('@/views/dataSource/dataSourceMaintenance/index.vue'),
+      },
+      {
+        name: 'dataSoucePremission',
+        path: 'dataSoucePremission',
+        meta: {
+          title: '数据源权限'
+        },
+        component: () => import('@/views/dataSource/dataSoucePremission/index.vue'),
+      }
     ]
   },
   {

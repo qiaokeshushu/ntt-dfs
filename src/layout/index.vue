@@ -28,8 +28,8 @@ onMounted(() => {
 .container {
   min-width: 1280px;
   .content {
-    padding: 0 20px;
-    min-height: calc(100vh - 182px);
+    padding: 20px 20px 0;
+    min-height: calc(100vh - 172px);
     &.home_container {
       min-height: calc(100vh - 130px);
     }

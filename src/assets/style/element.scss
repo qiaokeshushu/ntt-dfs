@@ -44,3 +44,11 @@
     }
   
 }
+.el-menu--popup {
+  min-width: 140px !important;
+  padding: 0 !important;
+}
+.el-radio__input.is-checked .el-radio__inner{
+  background-color: #254093 !important;
+  border-color: #254093 !important;
+}
