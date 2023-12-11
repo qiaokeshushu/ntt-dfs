@@ -4,7 +4,7 @@
       <el-menu
         mode="horizontal"
         :default-active="activeIndex"
-        active-text-color="#ffd04b"
+        active-text-color="#fff"
         router
       >
         <template v-for="(route, i) in routes" :key="i">
@@ -60,17 +60,17 @@ onMounted(() => {
     height: 100%;
     :deep(.el-menu) {
       height: 100%;
-      background: rgb(226, 0, 118);
+      background: #ce2c75;
       display: flex;
       align-items: center;
       .el-menu-item {
         color: #fff;
       }
       .el-menu-item:hover {
-        background-color: rgba(226, 0, 118, 0.3) !important;
+        background-color: #ce2c75 !important;
       }
       .el-menu-item.is-active {
-        background-color: rgba(226, 0, 118, 0.3) !important;
+        background-color: #ce2c75 !important;
       }
       .el-sub-menu {
         height: 100%;
@@ -79,12 +79,21 @@ onMounted(() => {
         color: #fff;
       }
       .el-sub-menu__title:hover {
-        background-color: rgba(226, 0, 118, 0.5) !important;
+        background-color: #ce2c75 !important;
       }
       .el-sub-menu:hover {
-        background-color: rgba(226, 0, 118, 0.5) !important;
+        background-color: #ce2c75 !important;
       }
     }
+  }
+}
+.el-popper {
+  .el-menu-item:hover {
+    background-color: rgba(206, 44, 117, 0.5) !important;
+    color: #fff;
+  }
+  .el-menu-item.is-active {
+    background-color: #ce2c75 !important;
   }
 }
 </style>
