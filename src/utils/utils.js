@@ -1,4 +1,19 @@
-import { ElMessage,ElMessageBox } from "element-plus";
+import { ElMessage, ElMessageBox } from "element-plus";
+export const typeOfOption = [
+	{
+		value: "1",
+		label: "Mapping",
+	},
+	{
+		value: "2",
+		label: "Master"
+	},
+	{
+		value: "3",
+		label: "Transaction"
+	}
+	
+]
 export const download = (res, name) => {
 	const downloadElement = document.createElement("a");
 	const href = window.URL.createObjectURL(res);
