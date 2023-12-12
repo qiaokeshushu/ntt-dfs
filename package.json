@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite --mode dev",
-    "start": "vite --mode dev",
-    "build": "vite build --mode prod",
-    "preview": "vite preview --mode prod"
+    "test": "vite --mode test",
+    "uat": "vite --mode uat",
+    "build:test": "vite build --mode test",
+    "build:uat": "vite build --mode uat",
+    "build:prod": "vite build --mode prod"
   },
   "dependencies": {
     "@element-plus/icons-vue": "1.1.4",
