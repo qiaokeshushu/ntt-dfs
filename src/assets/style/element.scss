@@ -48,6 +48,14 @@
 .el-menu--popup {
   min-width: 140px !important;
   padding: 0 !important;
+  border-radius: 5px !important;
+  overflow: hidden;
+}
+.el-popper.is-light{
+  border:none;
+}
+.el-menu--horizontal{
+  border-bottom: none;
 }
 .el-radio__input.is-checked .el-radio__inner{
   background-color: #254093 !important;

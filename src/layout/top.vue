@@ -1,9 +1,17 @@
 <template>
   <div class="logo">
     <div>ORGANON</div>
-    <div>Welcome:卢本伟牛逼</div>
+    <div class="welcome">
+      当前用户： <span class="name">{{ name }}</span>
+    </div>
   </div>
 </template>
+
+<script setup>
+import useUserStore from "@/store/modules/user";
+const userStore = useUserStore();
+const { name } = userStore.userInfo;
+</script>
 <style lang="scss" scoped>
 .logo {
   width: 100%;
@@ -12,5 +20,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  .welcome {
+    color: #666;
+    .name {
+      color: #333;
+      font-weight: bold;
+    }
+  }
 }
 </style>

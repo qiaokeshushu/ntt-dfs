@@ -1,8 +1,10 @@
 
 import { defineStore } from 'pinia'
- const useUserStore = defineStore('user', {
+const useUserStore = defineStore('user', {
   state: () => ({
-    userInfo: {},
+     userInfo: {
+      name:"全体起立"
+    },
     token: '111',
   }),
   action: {

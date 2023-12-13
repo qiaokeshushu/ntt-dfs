@@ -69,10 +69,10 @@ onMounted(() => {
         font-weight: bold;
       }
       .el-menu-item:hover {
-        background-color: #ce2c75 !important;
+        background-color: unset !important;
       }
       .el-menu-item.is-active {
-        background-color: #ce2c75 !important;
+        background-color: unset !important;
       }
       .el-sub-menu {
         height: 100%;
@@ -80,12 +80,19 @@ onMounted(() => {
       .el-sub-menu__title {
         color: #fff !important;
         font-weight: bold;
+        padding: 0 10px !important;
+        margin-left: 30px;
       }
       .el-sub-menu__title:hover {
-        background-color: #ce2c75 !important;
+        background-color: unset !important;
       }
       .el-sub-menu:hover {
-        background-color: #ce2c75 !important;
+        background-color: unset !important;
+      }
+      .el-menu--horizontal .el-menu-item:not(.is-disabled):focus,
+      .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
+        background-color: unset !important;
+        color: #fff;
       }
     }
   }
