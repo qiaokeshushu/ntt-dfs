@@ -29,15 +29,16 @@ onMounted(() => {
   min-width: 1280px;
   .content {
     padding: 20px 20px 0;
-    min-height: calc(100vh - 172px);
+    min-height: calc(100vh - 162px);
     &.home_container {
-      min-height: calc(100vh - 130px);
+      min-height: calc(100vh - 120px);
     }
   }
   .footer {
     width: 100%;
-    height: 40px;
-    line-height: 40px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
     text-align: center;
     color: #999;
   }
