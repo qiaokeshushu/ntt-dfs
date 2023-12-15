@@ -82,7 +82,7 @@ const columns = [
     width: "220px",
   },
 ];
-const total = ref(20);
+const total = ref(900);
 const tableData = ref([
   {
     name: "类别1",

@@ -1,12 +1,15 @@
 <template>
   <div class="login">
+    <div class="logo">
+      <img src="@/assets/images/logo_icon.png" alt="" />
+    </div>
     <el-form
       ref="loginRef"
       :model="loginForm"
       :rules="loginRules"
       class="login-form"
     >
-      <h3 class="title">DFS Admin</h3>
+      <h3 class="title">Data Feeding System</h3>
       <el-form-item prop="username">
         <el-input
           v-model="loginForm.username"
@@ -14,6 +17,9 @@
           auto-complete="off"
           placeholder="账号"
         >
+          <template #prefix>
+            <img src="@/assets/images/user.png" alt="" class="input_icon" />
+          </template>
         </el-input>
       </el-form-item>
       <el-form-item prop="password">
@@ -24,14 +30,18 @@
           placeholder="密码"
           @keyup.enter="handleLogin"
         >
+          <template #prefix>
+            <img src="@/assets/images/password.png" alt="" class="input_icon" />
+          </template>
         </el-input>
       </el-form-item>
       <el-form-item style="width: 100%">
         <el-button
           :loading="loading"
-          type="primary"
+          type="info"
           style="width: 100%"
           @click.prevent="handleLogin"
+          size="large"
         >
           <span>登 录</span>
         </el-button>
@@ -66,20 +76,44 @@ const loading = ref(false);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  // background-image: url("../assets/images/login-background.jpg");
-  // background-size: cover;
+  height: 100vh;
+  background-image: url("@/assets/images/login.jpg");
+  background-size: cover;
+  position: relative;
+  .logo {
+    position: absolute;
+    width: 200px;
+    height: 30px;
+    top: 25px;
+    left: 20px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .el-form-item--default {
+    margin-bottom: 24px;
+    .el-input {
+      :deep(.el-input__wrapper) {
+        border: 1px solid #e4e6eb;
+        box-shadow: none;
+      }
+    }
+  }
 }
 .title {
-  margin: 0px auto 30px auto;
+  margin: 15px auto 44px auto;
   text-align: center;
-  color: #707070;
+  color: #e20076;
+  font-size: 24px;
+  line-height: 32px;
 }
 
 .login-form {
-  border-radius: 6px;
-  background: #ffffff;
-  width: 400px;
+  border-radius: 8px;
+  background: #ffffffe6;
+  width: 360px;
+  height: 330px;
   padding: 25px 25px 5px 25px;
   .el-input {
     height: 40px;
@@ -87,9 +121,9 @@ const loading = ref(false);
       height: 40px;
     }
   }
-  .input-icon {
-    height: 39px;
-    width: 14px;
+  .input_icon {
+    height: 20px;
+    width: 20px;
     margin-left: 0px;
   }
 }

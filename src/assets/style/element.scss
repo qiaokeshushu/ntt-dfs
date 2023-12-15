@@ -19,6 +19,14 @@
     opacity: 0.7;
   }
 }
+.el-button--info {
+  color: #fff;
+  border: none;
+  background: linear-gradient(180deg, #e20076cc 0%, #E51A84 47.4%, #B0065F 100%);
+  &:hover {
+    background-color: #B0065F;
+  }
+}
 .el-button--danger{
   color: #fff;
   background-color: #ce2c75 !important;

@@ -12,7 +12,10 @@
             v-if="route.children && route.children.length === 1"
             :index="route.path"
           >
-            {{ route.meta.title }}
+            <div v-if="route.path === '/home'" class="home_icon">
+              <img src="@/assets/images/home_icon.png" alt="" />
+            </div>
+            <div v-else>{{ route.meta.title }}</div>
           </el-menu-item>
           <el-sub-menu
             v-else-if="route.children && route.children.length > 1"
@@ -61,7 +64,12 @@ onMounted(() => {
     height: 100%;
     :deep(.el-menu) {
       height: 100%;
-      background: #ce2c75;
+      background: linear-gradient(
+        180deg,
+        #e20076cc 0%,
+        #e51a84 47.4%,
+        #b0065f 100%
+      );
       display: flex;
       align-items: center;
       .el-menu-item {
@@ -72,16 +80,18 @@ onMounted(() => {
         background-color: unset !important;
       }
       .el-menu-item.is-active {
-        background-color: unset !important;
+        background-color: #feeced36 !important;
+        border: none !important;
       }
+
       .el-sub-menu {
         height: 100%;
       }
       .el-sub-menu__title {
         color: #fff !important;
         font-weight: bold;
-        padding: 0 10px !important;
-        margin-left: 30px;
+        padding: 0 6px !important;
+        margin-left: 18px;
       }
       .el-sub-menu__title:hover {
         background-color: unset !important;
@@ -89,11 +99,30 @@ onMounted(() => {
       .el-sub-menu:hover {
         background-color: unset !important;
       }
+
       .el-menu--horizontal .el-menu-item:not(.is-disabled):focus,
       .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
         background-color: unset !important;
         color: #fff;
       }
+    }
+    :deep(.el-menu--horizontal) {
+      .el-menu-item {
+        border: none !important;
+      }
+      .el-sub-menu.is-active .el-sub-menu__title {
+        border: none !important;
+        background-color: #feeced36 !important;
+      }
+      .el-sub-menu .el-sub-menu__title {
+        border: none !important;
+      }
+    }
+
+    .home_icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
     }
   }
 }
@@ -103,7 +132,12 @@ onMounted(() => {
     color: #fff;
   }
   .el-menu-item.is-active {
-    background-color: #ce2c75 !important;
+    background: linear-gradient(
+      180deg,
+      #e20076cc 0%,
+      #e51a84 47.4%,
+      #b0065f 100%
+    );
   }
 }
 </style>

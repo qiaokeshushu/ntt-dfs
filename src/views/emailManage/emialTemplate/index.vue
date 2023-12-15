@@ -25,7 +25,7 @@ import { Editor, Toolbar } from "@wangeditor/editor-for-vue";
 import { DomEditor } from "@wangeditor/editor";
 const editorRef = shallowRef();
 const mode = ref("default");
-const valueHtml = ref("卢本伟驾到，全体起立");
+const valueHtml = ref("");
 const toolbarConfig = {
   excludeKeys: [
     "group-image",
@@ -42,7 +42,9 @@ const handleCreated = (editor) => {
 const handleBlur = (editor) => {
   const toolbar = DomEditor.getToolbar(editor);
   console.log(toolbar.getConfig().toolbarKeys);
-  // editor.setHtml("<h1>hello nidaye</h1>");
+  editor.setHtml(
+    "<h1>优雅永不过时</h1><h1>失败始终是最好的导师</h1> <p>我曾踏足山巅，也曾进入低谷，二者都让我受益良多，人名易逝，山峦易毁，掌控你的命运，否则命运将掌控你</p>"
+  );
 };
 const handleChange = (editor) => {
   // console.log(editor.getHtml());

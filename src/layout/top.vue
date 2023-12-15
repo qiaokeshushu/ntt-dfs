@@ -1,6 +1,8 @@
 <template>
   <div class="logo">
-    <div>ORGANON</div>
+    <div class="logo_icon">
+      <img src="@/assets/images/logo_icon.png" alt="" />
+    </div>
     <div class="welcome">
       当前用户： <span class="name">{{ name }}</span>
     </div>
@@ -15,17 +17,22 @@ const { name } = userStore.userInfo;
 <style lang="scss" scoped>
 .logo {
   width: 100%;
-  height: 50px;
+  height: 40px;
   padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  .welcome {
-    color: #666;
-    .name {
-      color: #333;
-      font-weight: bold;
+  .logo_icon {
+    width: 133px;
+    height: 20px;
+    img {
+      width: 100%;
+      height: 100%;
     }
+  }
+  .welcome {
+    color: #292c33;
+    font-size: 14px;
   }
 }
 </style>
