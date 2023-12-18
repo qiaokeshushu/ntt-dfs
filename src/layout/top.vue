@@ -4,7 +4,7 @@
       <img src="@/assets/images/logo_icon.png" alt="" />
     </div>
     <div class="welcome">
-      当前用户： <span class="name">{{ name }}</span>
+      Welcome： <span class="name">{{ name }}</span>
     </div>
   </div>
 </template>

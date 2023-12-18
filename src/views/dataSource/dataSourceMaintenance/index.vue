@@ -31,7 +31,7 @@
       @selectionChange="handleSelectionChange"
     >
       <template #dataSource="{ row }">
-        <span class="table_href">
+        <span class="table_href" @click="toEdit(row)">
           {{ row.dataSource }}
         </span>
       </template>
@@ -50,6 +50,7 @@
 
 <script setup>
 import { download, delConfirm } from "@/utils/utils";
+const router = useRouter();
 const checkRows = ref([]);
 const columns = [
   {
@@ -145,6 +146,14 @@ const handleSelectionChange = (rows) => {
 const handleDelete = () => {
   delConfirm(checkRows.value).then(() => {
     console.log("删除操作");
+  });
+};
+const toEdit = (row) => {
+  router.push({
+    path: "/dataSource/dataSourceEdit",
+    query: {
+      id: row.id,
+    },
   });
 };
 </script>

@@ -178,6 +178,15 @@ const routes = [
         component: () => import('@/views/dataSource/dataSourceMaintenance/index.vue'),
       },
       {
+        name: 'dataSourceEdit',
+        path: 'dataSourceEdit',
+        meta: {
+          title: '编辑数据源',
+          hidden:true
+        },
+        component: () => import('@/views/dataSource/dataSourceEdit/index.vue'),
+      },
+      {
         name: 'dataSoucePremission',
         path: 'dataSoucePremission',
         meta: {
