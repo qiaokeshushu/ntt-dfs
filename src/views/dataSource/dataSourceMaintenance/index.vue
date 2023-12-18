@@ -21,7 +21,7 @@
         </el-col>
       </el-row>
     </el-form>
-    <div>
+    <div class="btn_list">
       <el-button type="primary">新建数据源</el-button>
       <el-button type="danger" @click="handleDelete">删除</el-button>
     </div>

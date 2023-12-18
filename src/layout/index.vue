@@ -29,9 +29,9 @@ onMounted(() => {
   min-width: 1280px;
   .content {
     padding: 20px 20px 0;
-    min-height: calc(100vh - 152px);
+    min-height: calc(100vh - 158px);
     &.home_container {
-      min-height: calc(100vh - 110px);
+      min-height: calc(100vh - 116px);
     }
   }
   .footer {

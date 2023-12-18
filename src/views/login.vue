@@ -112,8 +112,8 @@ const loading = ref(false);
 .login-form {
   border-radius: 8px;
   background: #ffffffe6;
-  width: 360px;
-  height: 330px;
+  width: 310px;
+  height: 310px;
   padding: 25px 25px 5px 25px;
   .el-input {
     height: 40px;

@@ -63,8 +63,16 @@ a {
   }
   .el-input{
     width:100%;
+    border-radius: 5px;
+    
+    .el-input__wrapper{
+      box-shadow: 0 0 3px 0 #00000040 inset;
+    }
+    
   }
   .el-range-editor{
+    box-shadow: 0 0 3px 0 #00000040 inset;
+    
   }
 }
 /*
@@ -74,6 +82,10 @@ a {
   background-color: #ffffff;
   padding: 22px 20px 0;
   border-radius: 5px;
+}
+.btn_list{
+  display: flex;
+  justify-content: flex-end;
 }
 .base-table {
   border-radius: 5px;

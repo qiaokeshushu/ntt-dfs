@@ -40,16 +40,16 @@ onMounted(() => {
 .app-breadcrumb.el-breadcrumb {
   display: inline-block;
   font-size: 14px;
-  line-height: 40px;
+  line-height: 46px;
   width: 100%;
   background: #eee;
 
   .first {
-    color: #888;
+    color: #8d9199;
     margin-left: 20px;
   }
   .two {
-    color: #000;
+    color: #292c33;
   }
 }
 </style>
